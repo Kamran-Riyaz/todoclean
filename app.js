@@ -1,5 +1,5 @@
 const form = document.getElementById("todo-form");
-const todo = document.getElementById("todo-input");
+const input = document.getElementById("todo-input");
 const list = document.getElementById("todo-list");
 
 let todos = JSON.parse(localStorage.getItem("todos")) || [];
@@ -15,7 +15,7 @@ function renderTodos() {
             ${todo.text}
             </span>
             <div>
-                <button onclick="toogleTodo(${index})">✔</button>
+                <button onclick="toggleTodo(${index})">✔</button>
                 <button onclick="deleteTodo(${index})">✖</button>
             </div>
         `;
@@ -25,3 +25,27 @@ function renderTodos() {
 
   localStorage.setItem("todos", JSON.stringify(todos));
 }
+
+form.addEventListener("submit", (e) => {
+  e.preventDefault();
+
+  todos.push({
+    text: input.value,
+    completed: false,
+  });
+
+  input.value = "";
+  renderTodos();
+});
+
+function toggleTodo(index) {
+  todos[index].completed = !todos[index].completed;
+  renderTodos();
+}
+
+function deleteTodo(index) {
+  todos.splice(index, 1);
+  renderTodos();
+}
+
+renderTodos();
