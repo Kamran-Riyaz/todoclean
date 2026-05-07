@@ -10,16 +10,26 @@ function renderTodos() {
   todos.forEach((todo, index) => {
     const li = document.createElement("li");
 
-    li.innerHTML = `
-            <span class="${todo.completed ? "completed" : ""}">
-            ${todo.text}
-            </span>
-            <div class="btn-container">
-                <button onclick="toggleTodo(${index})">✔</button>
-                <button class="del-btn" onclick="deleteTodo(${index})">✖</button>
-            </div>
-        `;
+    const span = document.createElement("span");
+    span.className = todo.completed ? "completed" : "";
+    span.textContent = todo.text;
 
+    const btnContainer = document.createElement("div");
+    btnContainer.className = "btn-container";
+
+    const toggleBtn = document.createElement("button");
+    toggleBtn.type = "button";
+    toggleBtn.textContent = "✔";
+    toggleBtn.addEventListener("click", () => toggleTodo(index));
+
+    const deleteBtn = document.createElement("button");
+    deleteBtn.type = "button";
+    deleteBtn.className = "del-btn";
+    deleteBtn.textContent = "✖";
+    deleteBtn.addEventListener("click", () => deleteTodo(index));
+
+    btnContainer.append(toggleBtn, deleteBtn);
+    li.append(span, btnContainer);
     list.appendChild(li);
   });
 
