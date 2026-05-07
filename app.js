@@ -14,9 +14,9 @@ function renderTodos() {
             <span class="${todo.completed ? "completed" : ""}">
             ${todo.text}
             </span>
-            <div>
+            <div class="btn-container">
                 <button onclick="toggleTodo(${index})">✔</button>
-                <button onclick="deleteTodo(${index})">✖</button>
+                <button class="del-btn" onclick="deleteTodo(${index})">✖</button>
             </div>
         `;
 
