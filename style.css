@@ -34,7 +34,6 @@ form {
   display: flex;
   gap: 10px;
   margin-bottom: 20px;
-  
 }
 
 input {
@@ -49,7 +48,7 @@ input {
 }
 
 .btn-container button:first-child {
-  background-color: #22BB33;
+  background-color: #22bb33;
   color: #ffffff;
   border: none;
 }
@@ -59,7 +58,7 @@ input {
 }
 
 .btn-container button:nth-child(2) {
-  background-color: #BB2124;
+  background-color: #bb2124;
   color: #ffffff;
   border: none;
 }
@@ -87,15 +86,12 @@ form button:hover {
   background-color: #3a69c8;
 }
 
-
-
 li {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 10px;
   border-bottom: 1px solid #ddd;
-  
 }
 
 .completed {
